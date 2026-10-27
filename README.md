@@ -199,5 +199,5 @@ Open your browser at `http://localhost:8501` to explore the interactive M&A Deal
 
 ## 👤 Author & Contact
 - **Data Analyst & Automation Specialist**
-- **GitHub**: [Your Profile Link](https://github.com/)
-- **LinkedIn**: [Your LinkedIn Link](https://linkedin.com/)
+- **GitHub**: (https://github.com/Eng-yousef-khalaf)
+- **LinkedIn**: (https://linkedin.com/in/yousef-khalafb1441326b))
