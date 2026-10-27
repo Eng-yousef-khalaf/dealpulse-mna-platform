@@ -1,0 +1,25 @@
+# Core Data Processing & Analysis
+pandas>=2.1.0
+polars>=0.20.0
+numpy>=1.26.0
+
+# Web Scraping & Multi-Source Ingestion
+requests>=2.31.0
+beautifulsoup4>=4.12.2
+lxml>=4.9.3
+urllib3>=2.0.7
+
+# Data Quality & Validation
+pydantic>=2.5.0
+python-dateutil>=2.8.2
+
+# SQL & Database ORM / Connector
+SQLAlchemy>=2.0.23
+
+# Interactive Dashboard & Visualization
+streamlit>=1.31.0
+plotly>=5.18.0
+
+# Testing & Linting
+pytest>=7.4.3
+flake8>=6.1.0

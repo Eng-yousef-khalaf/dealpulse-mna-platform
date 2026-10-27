@@ -1,0 +1,48 @@
+company_id,company_name,ticker,headquarters_country,headquarters_city,founded_year,ownership_type,employee_count,created_at
+COMP-GER-PAYBRIDGE-GLOBAL-TECH,PayBridge Global Tech,,Germany,Berlin,,Private,,2026-10-27 10:02:44
+COMP-UNI-BLACKSTONE,Blackstone,,United States,,,PE-Backed,,2026-10-27 10:02:44
+COMP-UNI-OMNICYBER-DEFENSE-LABS,OmniCyber Defense Labs,,United Kingdom,London,,Private,,2026-10-27 10:02:44
+COMP-FRA-SCHNEIDER-ELECTRIC,Schneider Electric,,France,,,Public,,2026-10-27 10:02:44
+COMP-UNI-SECURESTACK-SYSTEMS,SecureStack Systems,,United States,Boston,,Private,,2026-10-27 10:02:44
+COMP-UNI-STRIPE-GLOBAL,Stripe Global,,United States,,,Public,,2026-10-27 10:02:44
+COMP-SPA-GREENWATT-SOLAR-AI-LABS,GreenWatt Solar AI Labs,,Spain,Madrid,,Private,,2026-10-27 10:02:44
+COMP-UNI-PULSEHR-SAAS-GLOBAL,PulseHR SaaS Global,,United States,New York,,Private,,2026-10-27 10:02:44
+COMP-UNI-RELX,RELX,,United Kingdom,,,Public,,2026-10-27 10:02:44
+COMP-UNI-BIOHEALTH-ANALYTICS-SYSTEMS,BioHealth Analytics Systems,,United Kingdom,Cambridge,,Private,,2026-10-27 10:02:44
+COMP-GER-AEROSENSORS-IOT,AeroSensors IoT,,Germany,Munich,,Private,,2026-10-27 10:02:44
+COMP-UNI-OMNICYBER-DEFENSE-SYSTEMS,OmniCyber Defense Systems,,United Kingdom,London,,Private,,2026-10-27 10:02:44
+COMP-UNI-HG-CAPITAL,Hg Capital,,United Kingdom,,,PE-Backed,,2026-10-27 10:02:44
+COMP-GER-AEROSENSORS-IOT-SYSTEMS,AeroSensors IoT Systems,,Germany,Munich,,Private,,2026-10-27 10:02:44
+COMP-UNI-PERMIRA-ADVISERS,Permira Advisers,,United Kingdom,,,PE-Backed,,2026-10-27 10:02:44
+COMP-UNI-DATAMESH-CLOUD-TECH,DataMesh Cloud Tech,,United States,San Francisco,,Private,,2026-10-27 10:02:44
+COMP-UNI-SALESFORCE,Salesforce,,United States,,,Public,,2026-10-27 10:02:44
+COMP-UNI-DATAMESH-CLOUD,DataMesh Cloud,,United States,San Francisco,,Private,,2026-10-27 10:02:44
+COMP-UNI-FINLEDGER-BANKING-API-TECH,FinLedger Banking API Tech,,United Kingdom,London,,Private,,2026-10-27 10:02:44
+COMP-UNI-THOMA-BRAVO,Thoma Bravo,,United States,,,PE-Backed,,2026-10-27 10:02:45
+COMP-UNI-CARESYNC-TELEHEALTH-TECH,CareSync Telehealth Tech,,United States,Chicago,,Private,,2026-10-27 10:02:45
+COMP-FRA-EURAZEO,Eurazeo,,France,,,PE-Backed,,2026-10-27 10:02:45
+COMP-GER-AEROSENSORS-IOT-GLOBAL,AeroSensors IoT Global,,Germany,Munich,,Private,,2026-10-27 10:02:45
+COMP-UNI-DATAMESH-CLOUD-GLOBAL,DataMesh Cloud Global,,United States,San Francisco,,Private,,2026-10-27 10:02:45
+COMP-GER-SIEMENS-DIGITAL,Siemens Digital,,Germany,,,Public,,2026-10-27 10:02:45
+COMP-SWE-EQT,EQT,,Sweden,,,PE-Backed,,2026-10-27 10:02:45
+COMP-SWE-ROBOFLOW-AUTOMATION-TECH,RoboFlow Automation Tech,,Sweden,Stockholm,,Private,,2026-10-27 10:02:45
+COMP-SWE-NORDIC-CAPITAL,Nordic Capital,,Sweden,,,PE-Backed,,2026-10-27 10:02:45
+COMP-SWE-ROBOFLOW-AUTOMATION-LABS,RoboFlow Automation Labs,,Sweden,Stockholm,,Private,,2026-10-27 10:02:45
+COMP-SWE-ROBOFLOW-AUTOMATION,RoboFlow Automation,,Sweden,Stockholm,,Private,,2026-10-27 10:02:45
+COMP-UNI-DATAMESH-CLOUD-LABS,DataMesh Cloud Labs,,United States,San Francisco,,Private,,2026-10-27 10:02:45
+COMP-GER-PAYBRIDGE-GLOBAL-LABS,PayBridge Global Labs,,Germany,Berlin,,Private,,2026-10-27 10:02:45
+COMP-UNI-CARESYNC-TELEHEALTH-GLOBAL,CareSync Telehealth Global,,United States,Chicago,,Private,,2026-10-27 10:02:45
+COMP-FRA-ECOGRID-SOLUTIONS-GLOBAL,EcoGrid Solutions Global,,France,Paris,,Private,,2026-10-27 10:02:45
+COMP-UNI-DATAMESH-CLOUD-SYSTEMS,DataMesh Cloud Systems,,United States,San Francisco,,Private,,2026-10-27 10:02:45
+COMP-UNI-BIOHEALTH-ANALYTICS-TECH,BioHealth Analytics Tech,,United Kingdom,Cambridge,,Private,,2026-10-27 10:02:45
+COMP-GER-AEROSENSORS-IOT-TECH,AeroSensors IoT Tech,,Germany,Munich,,Private,,2026-10-27 10:02:45
+COMP-UNI-PULSEHR-SAAS-SYSTEMS,PulseHR SaaS Systems,,United States,New York,,Private,,2026-10-27 10:02:45
+COMP-UNI-CISCO-SYSTEMS,Cisco Systems,,United States,,,Public,,2026-10-27 10:02:45
+COMP-UNI-CARESYNC-TELEHEALTH-LABS,CareSync Telehealth Labs,,United States,Chicago,,Private,,2026-10-27 10:02:45
+COMP-UNI-BRIDGEPOINT,Bridgepoint,,United Kingdom,,,PE-Backed,,2026-10-27 10:02:45
+COMP-SWE-ROBOFLOW-AUTOMATION-SYSTEMS,RoboFlow Automation Systems,,Sweden,Stockholm,,Private,,2026-10-27 10:02:45
+COMP-SPA-GREENWATT-SOLAR-AI-GLOBAL,GreenWatt Solar AI Global,,Spain,Madrid,,Private,,2026-10-27 10:02:45
+COMP-FRA-ECOGRID-SOLUTIONS-TECH,EcoGrid Solutions Tech,,France,Paris,,Private,,2026-10-27 10:02:45
+COMP-UNI-SECURESTACK-SYSTEMS-GLOBAL,SecureStack Systems Global,,United States,Boston,,Private,,2026-10-27 10:02:45
+COMP-UNI-FINLEDGER-BANKING-API,FinLedger Banking API,,United Kingdom,London,,Private,,2026-10-27 10:02:46
+COMP-UNI-CARESYNC-TELEHEALTH,CareSync Telehealth,,United States,Chicago,,Private,,2026-10-27 10:02:46
