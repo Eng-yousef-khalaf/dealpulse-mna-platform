@@ -18,6 +18,8 @@ import plotly.graph_objects as go
 from src.database.db_manager import DatabaseManager
 from src.analytics.deal_multiples import ValuationAnalytics
 from src.analytics.trends import MarketTrendsAnalytics
+from src.analytics.polars_engine import PolarsValuationEngine
+from src.pipeline.power_automate import PowerAutomateConnector
 
 # Page configuration
 st.set_page_config(
@@ -105,7 +107,13 @@ col4.metric("PE Sponsor Penetration", f"{pe_share:.1f}%")
 st.markdown("---")
 
 # Analytics Tabs
-tab1, tab2, tab3 = st.tabs(["Valuation Multiples Benchmark", "Capital Flows & Buyer Analysis", "Deal Screener & Data Table"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    "📊 Valuation Benchmarks",
+    "💼 Capital Allocation",
+    "🔍 Deal Screener",
+    "⚡ Power Automate & M365",
+    "🚀 Polars Performance Engine"
+])
 
 with tab1:
     st.subheader("Sector Valuation Multiples (EV / EBITDA)")
@@ -196,3 +204,69 @@ with tab3:
         file_name="dealpulse_curated_deals.csv",
         mime="text/csv",
     )
+
+with tab4:
+    st.subheader("⚡ Microsoft Power Automate & M365 Workflow Automation")
+    st.markdown("""
+    This module simulates enterprise process automation connecting DealPulse with **Microsoft Power Automate**,
+    **SharePoint Lists**, and **Microsoft Teams**. It automatically filters high-value acquisitions ($75M+ or EV/EBITDA > 19x)
+    and generates compliant **Adaptive Card JSON payloads** for executive notification channels.
+    """)
+
+    pa_connector = PowerAutomateConnector()
+    deals_dict_list = filtered_df.to_dict(orient="records")
+    marquee_deals = pa_connector.filter_marquee_deals(deals_dict_list)
+
+    col_pa1, col_pa2 = st.columns([1, 1])
+
+    with col_pa1:
+        st.markdown(f"**Identified Marquee Alerts ({len(marquee_deals)} high-impact deals)**")
+        if marquee_deals:
+            selected_alert_deal = st.selectbox(
+                "Select Transaction to Trigger Workflow Alert:",
+                options=marquee_deals,
+                format_func=lambda d: f"{d.get('target_name')} - ${d.get('deal_value_usd')}M ({d.get('buyer_type')})"
+            )
+            
+            if st.button("🚀 Trigger Power Automate Webhook Simulation"):
+                sim = pa_connector.dispatch_alert_simulation(selected_alert_deal)
+                st.success(f"Webhook Triggered! Status: {sim['status']} -> Action: {sim['action']}")
+                st.json(sim["payload"])
+        else:
+            st.info("No marquee deals matched the current filter threshold ($75M+).")
+
+    with col_pa2:
+        st.markdown("**SharePoint List Synchronization Feed**")
+        st.write("Exports standardized JSON feed ready for Power Automate `Create item in SharePoint` flow.")
+        if st.button("📁 Export SharePoint Import Feed"):
+            sp_path = pa_connector.export_sharepoint_migration_feed(deals_dict_list)
+            st.success(f"SharePoint List feed successfully generated at `{sp_path.name}`")
+            with open(sp_path, "r", encoding="utf-8") as f:
+                import json
+                sample_sp = json.load(f)[:2]
+            st.json(sample_sp)
+
+with tab5:
+    st.subheader("🚀 High-Performance Polars Analytics Engine")
+    st.markdown("""
+    **Apache Arrow & Vectorized Processing:** Benchmarks sub-millisecond aggregations using Polars LazyFrames
+    vs. conventional Pandas. Designed to handle institutional datasets with zero-copy memory efficiency.
+    """)
+
+    db_m = DatabaseManager()
+    polars_engine = PolarsValuationEngine(db_m)
+
+    col_bench1, col_bench2 = st.columns([1, 1])
+
+    with col_bench1:
+        st.markdown("**Real-Time Engine Benchmark**")
+        if st.button("⚡ Run Polars vs Pandas Benchmark"):
+            bench = polars_engine.benchmark_pandas_vs_polars()
+            st.metric("Pandas Latency", f"{bench['pandas_ms']} ms")
+            st.metric("Polars Latency", f"{bench['polars_ms']} ms", delta=bench['speedup_factor'])
+            st.info(f"Polars processed {bench['record_count']} deal rows with vectorized execution: **{bench['speedup_factor']}**")
+
+    with col_bench2:
+        st.markdown("**Polars Computed Sector Benchmarks (Median, P25, P75)**")
+        pldf = polars_engine.compute_sector_benchmarks_polars()
+        st.dataframe(pldf.to_pandas(), use_container_width=True)
