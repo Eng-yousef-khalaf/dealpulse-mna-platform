@@ -57,7 +57,12 @@ st.markdown("""
 @st.cache_data(ttl=60)
 def load_data():
     db = DatabaseManager()
+    db.initialize_schema()
     df = db.get_all_deals_df()
+    if df.empty:
+        from scripts.seed_data import generate_seed_deals
+        generate_seed_deals(45)
+        df = db.get_all_deals_df()
     return df
 
 df = load_data()

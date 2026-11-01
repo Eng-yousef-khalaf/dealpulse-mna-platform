@@ -5,6 +5,55 @@ import pytest
 from src.pipeline.power_automate import PowerAutomateConnector
 from src.analytics.polars_engine import PolarsValuationEngine
 from src.database.db_manager import DatabaseManager
+from src.pipeline.cleaner import DealPipelineCleaner
+
+
+@pytest.fixture
+def seeded_db(tmp_path):
+    """Creates an isolated, schema-initialized, and seeded SQLite database for CI/CD testing."""
+    db = DatabaseManager(db_path=tmp_path / "test_automation_deals.db")
+    db.initialize_schema()
+    cleaner = DealPipelineCleaner(db)
+    sample_deals = [
+        {
+            "deal_id": "DEAL-AUTO-001",
+            "announcement_date": "2026-10-20",
+            "target_company": "SecureNet Systems Ltd",
+            "target_country": "United Kingdom",
+            "acquirer_company": "Permira Advisers",
+            "acquirer_country": "United Kingdom",
+            "sector": "Cybersecurity",
+            "deal_type": "Majority Stake / Buyout",
+            "buyer_type": "Private Equity Sponsor",
+            "deal_status": "Completed",
+            "deal_currency": "GBP",
+            "deal_value_native": 250.0,
+            "target_revenue_usd": 64.0,
+            "target_ebitda_usd": 16.0,
+            "lead_advisor": "Rothschild & Co",
+            "source_feed": "CI Test Feed",
+        },
+        {
+            "deal_id": "DEAL-AUTO-002",
+            "announcement_date": "2026-10-22",
+            "target_company": "CloudWave SaaS Inc",
+            "target_country": "United States",
+            "acquirer_company": "Vista Equity Partners",
+            "acquirer_country": "United States",
+            "sector": "Enterprise Software & SaaS",
+            "deal_type": "Full Acquisition",
+            "buyer_type": "Private Equity Sponsor",
+            "deal_status": "Completed",
+            "deal_currency": "USD",
+            "deal_value_native": 420.0,
+            "target_revenue_usd": 70.0,
+            "target_ebitda_usd": 21.0,
+            "lead_advisor": "Evercore",
+            "source_feed": "CI Test Feed",
+        },
+    ]
+    cleaner.process_and_ingest(sample_deals)
+    return db
 
 def test_power_automate_adaptive_card_generation():
     connector = PowerAutomateConnector()
@@ -49,17 +98,15 @@ def test_power_automate_sharepoint_feed_export():
     path = connector.export_sharepoint_migration_feed(sample_deals)
     assert path.exists()
 
-def test_polars_engine_benchmarks():
-    db = DatabaseManager()
-    engine = PolarsValuationEngine(db)
+def test_polars_engine_benchmarks(seeded_db):
+    engine = PolarsValuationEngine(seeded_db)
     benchmarks = engine.compute_sector_benchmarks_polars()
     assert benchmarks.height > 0
     assert "median_ev_ebitda" in benchmarks.columns
     assert "total_capital_usd_m" in benchmarks.columns
 
-def test_polars_vs_pandas_speed_benchmark():
-    db = DatabaseManager()
-    engine = PolarsValuationEngine(db)
+def test_polars_vs_pandas_speed_benchmark(seeded_db):
+    engine = PolarsValuationEngine(seeded_db)
     result = engine.benchmark_pandas_vs_polars()
     assert "pandas_ms" in result
     assert "polars_ms" in result

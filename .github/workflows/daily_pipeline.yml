@@ -36,8 +36,8 @@ jobs:
 
       - name: Execute Ingestion Pipeline
         run: |
-          chmod +x scripts/run_pipeline.sh
-          ./scripts/run_pipeline.sh
+          python scripts/seed_data.py
+          bash scripts/run_pipeline.sh
 
       - name: Archive Curated Data Exports
         uses: actions/upload-artifact@v4

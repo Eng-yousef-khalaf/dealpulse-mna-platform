@@ -153,7 +153,17 @@ class DatabaseManager:
         LEFT JOIN dim_advisors adv ON f.lead_advisor_id = adv.advisor_id
         ORDER BY f.deal_announcement_date DESC;
         """
+        if not self.db_path.exists():
+            self.initialize_schema()
+
         with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT name FROM sqlite_master WHERE type='table' AND name='fact_mna_deals';"
+            )
+            if cursor.fetchone() is None:
+                conn.executescript(SCHEMA_FILE.read_text(encoding="utf-8"))
+                conn.commit()
             return pd.read_sql_query(query, conn)
 
     def get_all_deals_polars(self) -> pl.DataFrame:
