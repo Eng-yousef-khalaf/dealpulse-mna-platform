@@ -35,6 +35,13 @@ class DatabaseManager:
             schema_sql = f.read()
 
         with self.get_connection() as conn:
+            if force_recreate:
+                conn.executescript(
+                    "DROP TABLE IF EXISTS fact_mna_deals;"
+                    "DROP TABLE IF EXISTS dim_advisors;"
+                    "DROP TABLE IF EXISTS dim_sectors;"
+                    "DROP TABLE IF EXISTS dim_companies;"
+                )
             conn.executescript(schema_sql)
             conn.commit()
         logger.info("Database schema initialized successfully.")
