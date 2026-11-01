@@ -4,7 +4,7 @@
 [![Data Processing](https://img.shields.io/badge/Data%20Engine-Pandas%20%7C%20Polars-150458?logo=pandas&logoColor=white)](https://pola.rs/)
 [![Database](https://img.shields.io/badge/Warehouse-SQLite%20%7C%20PostgreSQL-336791?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Reporting](https://img.shields.io/badge/Dashboard-Power%20BI%20%7C%20Streamlit-F2C811?logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
-[![CI/CD Pipeline](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/)
+[![CI/CD Pipeline](https://github.com/Eng-yousef-khalaf/dealpulse-mna-platform/actions/workflows/daily_pipeline.yml/badge.svg)](https://github.com/Eng-yousef-khalaf/dealpulse-mna-platform/actions/workflows/daily_pipeline.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 An institutional-grade, automated data pipeline and market intelligence platform designed for **Mid-Market Investment Banking** and **Private Equity Deal Sourcing** across the UK, US, and European markets.
